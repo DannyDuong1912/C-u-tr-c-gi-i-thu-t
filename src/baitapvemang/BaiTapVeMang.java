@@ -4,17 +4,78 @@
  */
 package baitapvemang;
 
-/**
- *
- * @author Duong Minh Dat
- */
-public class BaiTapVeMang {
+import java.util.Random;
+import java.util.Scanner;
 
-    /**
-     * @param args the command line arguments
-     */
+public class BaiTapVeMang {
+// khai bao mang so nguyen
+    float a[];
+// so luong phan tư 
+    int n;
+    
+ public BaiTapVeMang(){
+     Scanner sc = new Scanner(System.in);
+     System.out.println("Nhap vao so luong phan tu cua Mang:");
+     n = sc.nextInt();
+     a = taoMangSoThuc(n);
+     printA();
+ }
+ // Viết pt in ra mảng
+ public void printA(){
+     for (int i = 0; i < a.length; i++) {
+         System.out.print(a[i] + "  ");
+     }
+ }
+ // viết phương thức trả về mảng số thực n phẩn tử 
+ public float[] taoMangSoThuc(int n){
+     Random r = new Random();
+     
+     float[] temp = new float[n];
+     for (int i = 0; i < n; i++) {
+         temp[i] = r.nextFloat();
+     }
+     return temp;
+ }
+ 
+ // thêm 1 phần tử x vào cuối mảng 
+ public void addX(float x){
+     //Tăng n lên
+     n = n+1;
+     // Tạo mảng temp
+     float[] temp = new float[n];
+     // copy dữ liệu 
+     for (int i = 0; i < a.length; i++) {
+         temp[i] = a[i];
+     }
+     // thêm x vào cuối mẩng 
+     temp[n-1] = x;
+     // gán lại cho mảng
+     a = temp ;
+ }
+ // tính tổng 2 phần tử đầu tiên
+  public void sum2pt(){
+      float sum = 0;
+//      if(a.length >=1){
+//          sum+= a[0];
+//      }
+//      if(a.length >=2){
+//          sum+= a[1];
+//      }
+      for (int i = 0; i<=2 && i < a.length; i++) {
+          sum+=a[i];
+      }
+      
+      System.out.println("tong 2 phan tu dau tien: " + sum);
+  }
+ 
     public static void main(String[] args) {
-        // TODO code application logic here
+        BaiTapVeMang b = new BaiTapVeMang();
+        b.addX(1.3f);
+        System.out.println();
+        b.printA();
+        System.out.println();
+        b.sum2pt();
     }
     
+    // bài 04 phút 32 
 }
