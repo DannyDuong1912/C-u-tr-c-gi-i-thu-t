@@ -67,6 +67,30 @@ public class BaiTapVeMang {
       
       System.out.println("tong 2 phan tu dau tien: " + sum);
   }
+  // in tong mang
+  public void SumA(){
+      float sum = 0;
+      for (int i = 0; i < a.length; i++) {
+          sum+=a[i];
+      }
+       System.out.println("Tong Mang A: " + sum);
+  }
+  // tim gia tri nho nhat
+  public void findMin(){
+      float min =a[0];
+      for (int i = 0; i < a.length; i++) {
+          if(min >a[i]){
+              min = a[i];
+          }
+      }
+      System.out.println("Min = " + min );
+  }
+  // in ra gia tri ngau nhien 
+  public void printRandon(){
+      Random r = new Random();
+      int index = r.nextInt(a.length);
+      System.out.println("A["+index+"]="+a[index]);
+  }
  
     public static void main(String[] args) {
         BaiTapVeMang b = new BaiTapVeMang();
@@ -75,6 +99,11 @@ public class BaiTapVeMang {
         b.printA();
         System.out.println();
         b.sum2pt();
+        System.out.println();
+        b.SumA();
+        System.out.println();
+        b.findMin();
+        b.printRandon();
     }
     
     // bài 04 phút 32 
